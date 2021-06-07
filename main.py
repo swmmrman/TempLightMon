@@ -24,5 +24,5 @@ while True:
     if mint2 > temp2: maxt2 = temp2
     ups = "\033[1A"
     print(F"{ups * 3}Current: \tTemp 1: {temp1:3.2f} Temp2: {temp2:3.2f} LDR: {ldr:04d}")
-    print(F"Maximums: \tTemp 1: {maxt1:3.2f} Temp2: {maxt2} LDR: {maxldr:04d}")
-    print(F"Minimums: \tTemp 1: {mint1:3.2f} Temp2: {mint2} LDR: {minldr:04d}")
+    print(F"Maximums: \tTemp 1: {maxt1:3.2f} Temp2: {maxt2:3.2f} LDR: {maxldr:04d}")
+    print(F"Minimums: \tTemp 1: {mint1:3.2f} Temp2: {mint2:3.2f} LDR: {minldr:04d}")
