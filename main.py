@@ -19,7 +19,7 @@ while True:
     if minldr > ldr: minldr = ldr
     if maxldr < ldr: maxldr = ldr
     if maxt1 < temp1: maxt1 = temp1
-    if mint1 > mint1: mint1 = temp1
+    if mint1 > temp1: mint1 = temp1
     if maxt2 < temp2: maxt2 = temp2
     if mint2 > temp2: maxt2 = temp2
     ups = "\033[1A"
