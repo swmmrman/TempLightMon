@@ -3,9 +3,11 @@ import serial
 
 ser = serial.Serial('/dev/ttyUSB0', 115200)
 print("Starting")
-(temp1, temp2, ldr) = ser.readline().decode('utf-8').strip().split(",")
+(temp1, temp2, h1, h2, ldr) = ser.readline().decode('utf-8').strip().split(",")
 maxt1 = float(temp1)
 mint1 = float(temp1)
+maxh1 = float(h1)
+minh1 = float(h1)
 maxt2 = float(temp2)
 mint2 = float(temp2)
 maxd = float(temp1) - float(temp2)
@@ -14,17 +16,23 @@ maxldr = int(ldr)
 minldr = int(ldr)
 print("\n\n")
 while True:
-    (temp1, temp2, ldr) = ser.readline().decode('utf-8').strip().split(",")
+    (temp1, temp2, h1, h2, ldr) = ser.readline().decode('utf-8').strip().split(",")
     temp1 = float(temp1)
+    h1 = float(h1)
     temp2 = float(temp2)
+    h2 = float(h2)
     ldr = int(ldr)
     delta = temp1 - temp2
     if minldr > ldr: minldr = ldr
     if maxldr < ldr: maxldr = ldr
     if maxt1 < temp1: maxt1 = temp1
     if mint1 > temp1: mint1 = temp1
+    if maxh1 < h1: maxh1 = h1
+    if minh1 > h1: minh1 = h1
     if maxt2 < temp2: maxt2 = temp2
     if mint2 > temp2: mint2 = temp2
+    if minh2 > h2: minh2 = h2
+    if maxh2 < h2: maxh2 = h2
     if maxd < delta: maxd = delta
     if mind > delta: mind = delta
     ups = "\033[1A"
