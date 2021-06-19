@@ -3,15 +3,12 @@ import serial
 
 ser = serial.Serial('/dev/ttyUSB0', 115200)
 print("Starting")
-(temp1, temp2, h1, h2, ldr) = ser.readline().decode('utf-8').strip().split(",")
-maxt1 = float(temp1)
-mint1 = float(temp1)
-maxh1 = float(h1)
-minh1 = float(h1)
-maxt2 = float(temp2)
-mint2 = float(temp2)
-maxd = float(temp1) - float(temp2)
-mind = maxd
+(temp1, temp2, h1, h2, ldr) = map(float, ser.readline().decode('utf-8').strip().split(","))
+maxt1 = mint1 = temp1
+maxh1 = minh1 = h1
+maxt2 = mint2 = temp2
+maxd = mind = temp1 - temp2
+
 maxldr = int(ldr)
 minldr = int(ldr)
 print("\n\n")
