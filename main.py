@@ -13,12 +13,7 @@ maxldr = int(ldr)
 minldr = int(ldr)
 print("\n\n")
 while True:
-    (temp1, temp2, h1, h2, ldr) = ser.readline().decode('utf-8').strip().split(",")
-    temp1 = float(temp1)
-    h1 = float(h1)
-    temp2 = float(temp2)
-    h2 = float(h2)
-    ldr = int(ldr)
+    (temp1, temp2, h1, h2, ldr) = map(float, ser.readline().decode('utf-8').strip().split(","))
     delta = temp1 - temp2
     if minldr > ldr: minldr = ldr
     if maxldr < ldr: maxldr = ldr
