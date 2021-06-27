@@ -1,12 +1,17 @@
 import logic
 import serial
 
+c = False
+
+def toC(f):
+    return (f-32) * (5/9)
+
 ser = serial.Serial('/dev/ttyUSB0', 115200)
 print("Starting")
 (temp1, temp2, h1, h2, ldr) = map(float, ser.readline().decode('utf-8').strip().split(","))
-maxt1 = mint1 = temp1
+maxt1 = mint1 = temp1 if not c else toC(temp1)
 maxh1 = minh1 = h1
-maxt2 = mint2 = temp2
+maxt2 = mint2 = temp2 if not c else toC(temp2)
 maxh2 = minh2 = h2
 maxd = mind = temp2 - temp1
 
@@ -18,6 +23,9 @@ minldr = int(ldr)
 print("\n\n")
 while True:
     (temp1, temp2, h1, h2, ldr) = map(float, ser.readline().decode('utf-8').strip().split(","))
+    if c:
+        temp1 = toC(temp1)
+        temp2 = toC(temp2)
     delta = temp2 - temp1
     dv = abs(delta)
     arrow = up_arrow if delta > 0 else down_arrow
