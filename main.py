@@ -14,6 +14,7 @@ maxh1 = minh1 = h1
 maxt2 = mint2 = temp2 if not c else toC(temp2)
 maxh2 = minh2 = h2
 maxd = mind = temp2 - temp1
+sym = "c" if c else "f"
 
 up_arrow = u'\u2191'
 down_arrow = u'\u2193'
@@ -48,6 +49,6 @@ while True:
     larrow = up_arrow if mind > 0 else down_arrow
     ups = "\033[1A"
     print(F"{ups * 3}", end="")
-    print(F'Current: \tT1: {temp1:5.2f} H1: {h1: 5.2f} T2: {temp2:5.2f} H2: {h2: 5.2f} TD: {dv: 6.2f}{arrow} LDR: {ldr:04d}')
-    print(F"High:\t\tT1: {maxt1:5.2f} H1: {maxh1: 5.2f} T2: {maxt2:5.2f} H2: {maxh2: 5.2f} TD: {hdv: 6.2f}{harrow} LDR: {maxldr:04d}")
-    print(F"Low:\t\tT1: {mint1:5.2f} H1: {minh1: 5.2f} T2: {mint2:5.2f} H2: {minh2: 5.2f} TD: {ldv: 6.2f}{larrow} LDR: {minldr:04d}")
+    print(F'Current: \tT1: {temp1:5.2f}{sym}  H1: {h1: 5.2f}\tT2: {temp2:5.2f}{sym} H2: {h2: 5.2f} TD: {dv: 6.2f}{sym}{arrow} LDR: {ldr:04d}')
+    print(F"High:\t\tT1: {maxt1:5.2f}{sym}  H1: {maxh1: 5.2f}\tT2: {maxt2:5.2f}{sym} H2: {maxh2: 5.2f} TD: {hdv: 6.2f}{sym}{harrow} LDR: {maxldr:04d}")
+    print(F"Low:\t\tT1: {mint1:5.2f}{sym}  H1: {minh1: 5.2f}\tT2: {mint2:5.2f}{sym} H2: {minh2: 5.2f} TD: {ldv: 6.2f}{sym}{larrow} LDR: {minldr:04d}")
